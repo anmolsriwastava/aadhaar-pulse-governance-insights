@@ -416,5 +416,500 @@ Key observations include:
 
 These distributions establish the baseline against which update activity is interpreted.
 
-![Total Aadhaar Enrolments by Age Group](figures/enrolments_age_totals.png)
+![Total Aadhaar Enrolments by Age Group](figures/enrolment_age_totals.png)
+
+![Demographic Updates by Age Group](figures/demographic_updates_by_age.png)
+
+![Biometric Updates by Age Group](figures/biometric_updates_by_age.png)
+
+## 6.2 Bivariate Analysis: Linking Enrolment and Update Activity
+
+While univariate analysis provides an overview of enrolment and update volumes, it does not reveal how these activities interact at the administrative level. To support proactive governance, it is essential to examine **relationships between variables**, particularly enrolment volume and update intensity.
+
+Bivariate analysis enables identification of districts where update activity is disproportionately high relative to new enrolments. Such patterns serve as early-warning signals of service stress, repeat interactions, or lifecycle-driven pressure on Aadhaar infrastructure.
+
+---
+
+### 6.2.1 District-Level Relationship Between Enrolments and Updates
+
+To examine service stress at the district level, total Aadhaar enrolments were compared against total update activity (demographic and biometric combined) for each district.
+
+This analysis helps answer a critical governance question:
+
+> *Are certain districts experiencing unusually high update pressure relative to the number of new enrolments?*
+
+---
+
+#### Analytical Rationale
+
+- **Enrolments** represent system entry points.
+- **Updates** represent ongoing interaction, correction, or lifecycle compliance.
+- A high ratio of updates to enrolments suggests repeated service touchpoints, which may indicate:
+  - lifecycle-driven compliance pressure,
+  - operational bottlenecks,
+  - capacity constraints at enrolment and update centres.
+
+---
+
+#### Visual Analysis
+
+The scatter plot below illustrates the relationship between total enrolments and total updates at the district level.
+
+![District-Level Enrolments vs Updates](figures/enrolments_vs_updates_scatter.png)
+
+---
+
+#### Key Observations
+
+- Districts exhibit substantial variation in update activity even at similar enrolment levels.
+- Several districts cluster above the expected enrolment–update trend, indicating **disproportionately high update intensity**.
+- These districts are not necessarily those with the highest enrolment volumes, highlighting the limitation of volume-based monitoring alone.
+
+---
+
+#### Governance Interpretation
+
+Districts with high update activity relative to enrolments represent **potential service stress zones**. While high update volumes are not inherently problematic, persistent divergence from enrolment patterns suggests increased citizen effort, repeat visits, or lifecycle-driven update pressure.
+
+This finding directly motivates the construction of the **Update Stress Index (USI)** in the Aadhaar Pulse framework, which formalises this relationship into an actionable indicator for administrative prioritisation.
+
+---
+
+### 6.2.2 Age-Specific Update Pressure Across Districts
+
+To further refine the analysis, enrolment and biometric update activity were examined separately for children (5–17 years) and adults (17 years and above). This allows assessment of whether update pressure is uniformly distributed across age groups or concentrated within specific lifecycle segments.
+
+---
+
+#### Analytical Rationale
+
+- Children are subject to mandatory biometric updates at specific ages.
+- Adults may require updates due to corrections, authentication issues, or demographic changes.
+- Comparing update-to-enrolment ratios across age groups helps distinguish **lifecycle compliance pressure** from **enrolment quality stress**.
+
+---
+
+#### Visual Analysis
+
+The figure below compares the distribution of biometric updates per enrolment across districts for children and adults.
+
+![Lifecycle Update Pressure by Age Group](figures/lifecycle_update_pressure.png)
+
+---
+
+#### Key Observations
+
+- Child biometric update ratios show greater dispersion across districts compared to adult ratios.
+- Some districts exhibit significantly higher child update pressure, while others lag behind expected lifecycle compliance levels.
+- Adult update ratios are comparatively more stable, though certain districts still display elevated values.
+
+---
+
+#### Governance Interpretation
+
+The observed asymmetry in child update patterns validates the need for a **dedicated child-focused governance signal** rather than treating all update activity as homogeneous. Uneven child update pressure may reflect gaps in awareness, access, or administrative outreach.
+
+These findings provide the empirical foundation for the **Child Lifecycle Compliance Signal (CLCS)**, enabling targeted, preventive interventions such as school-based update drives or parental awareness campaigns.
+
+---
+
+### 6.2.3 Implications for Aadhaar Pulse Design
+
+The bivariate and age-segmented analyses demonstrate that meaningful governance insights emerge only when enrolment and update datasets are examined jointly. Volume-based monitoring alone fails to capture emerging stress patterns.
+
+By linking enrolments with update behaviour:
+- Service stress can be identified before complaint-driven escalation,
+- Lifecycle continuity risks can be flagged early,
+- Administrative resources can be prioritised with greater precision.
+
+These insights directly inform the indicator definitions presented in the next section, where the Aadhaar Pulse framework is formalised into actionable governance signals.
+
+## 6.3 Trivariate Analysis: Age Group, Enrolment Base, and Update Intensity
+
+While bivariate analysis establishes that update pressure varies relative to enrolment volumes, it does not fully explain *how different population segments experience this pressure*. Aadhaar operates as a lifecycle-based identity system, and enrolment and update behaviour differs significantly across age groups.
+
+To capture this interaction, a trivariate analytical perspective is adopted, jointly examining:
+- **Age group** (children vs adults),
+- **Enrolment base**, and
+- **Biometric update intensity**.
+
+This analysis helps distinguish between general service stress and lifecycle-specific governance risks.
+
+---
+
+### 6.3.1 Rationale for Trivariate Examination
+
+Two districts may exhibit similar overall update pressure, yet the underlying drivers may differ:
+- In one district, updates may be concentrated among adults due to corrections or authentication-related issues.
+- In another, updates may be concentrated among children, indicating potential gaps in lifecycle compliance.
+
+By simultaneously accounting for age group, enrolment size, and update frequency, trivariate analysis enables more nuanced governance interpretation than aggregate comparisons alone.
+
+---
+
+### 6.3.2 Analytical Construction
+
+For each district and reporting period, biometric update activity was normalised by the corresponding enrolment base for the relevant age group. This produced age-specific update intensity ratios:
+
+- **Child update ratio:** biometric updates among individuals aged 5–17 relative to enrolled children.
+- **Adult update ratio:** biometric updates among individuals aged 17 years and above relative to adult enrolments.
+
+These ratios were examined across districts to assess variability and dispersion in lifecycle-related update behaviour.
+
+A small constant was added to enrolment denominators where necessary to avoid division by zero, without materially affecting the interpretation of results.
+
+---
+
+### 6.3.3 Distribution of Lifecycle Update Pressure
+
+The figure below presents the distribution of biometric update intensity across districts for children and adults.
+
+![Lifecycle Update Pressure by Age Group](figures/lifecycle_update_pressure.png)
+
+---
+
+### 6.3.4 Key Observations
+
+Several important patterns emerge from this analysis:
+
+- **Higher dispersion among children:**  
+  Child update ratios exhibit substantially greater variability across districts compared to adult ratios. This indicates uneven progression through mandatory lifecycle updates.
+
+- **Concentration of extreme values:**  
+  A subset of districts shows exceptionally high child update intensity, while others show very low values. Both extremes warrant administrative attention, albeit for different reasons.
+
+- **Relative stability among adults:**  
+  Adult update ratios, while non-uniform, display comparatively tighter clustering, suggesting more consistent update behaviour across districts.
+
+---
+
+### 6.3.5 Governance Interpretation
+
+The asymmetric distribution of update pressure across age groups highlights the limitation of treating all Aadhaar updates as a single operational category. Children represent a distinct governance segment with lifecycle-driven update requirements and heightened vulnerability to service disruption.
+
+Districts with unusually low child update intensity may face future risks of lifecycle discontinuity, potentially affecting access to education-linked or welfare-linked services. Conversely, districts with exceptionally high child update intensity may experience concentrated service demand that requires targeted operational support.
+
+This trivariate analysis provides the empirical justification for introducing a **child-specific governance signal** within the Aadhaar Pulse framework, rather than relying solely on aggregate service metrics.
+
+---
+
+### 6.3.6 Implications for Proactive Governance
+
+By integrating age group, enrolment base, and update intensity, trivariate analysis enables administrators to:
+- Differentiate lifecycle compliance issues from general service stress,
+- Identify districts requiring age-specific outreach or capacity planning,
+- Prioritise preventive interventions before exclusion or disruption occurs.
+
+These insights inform the formal indicator definitions presented in the next section, where the Aadhaar Pulse framework is operationalised into actionable governance signals.
+
+### 6.3.7 District-Level Child Lifecycle Stress
+
+To visualise the combined effect of enrolment size, update intensity, and lifecycle pressure, a bubble scatter plot was constructed at the district level.
+
+![District-Level Child Lifecycle Stress](figures/child_lifecycle_stress_bubble.png)
+
+In this visualisation:
+- The horizontal axis represents the size of the enrolled child population (5–17 years),
+- The vertical axis represents biometric update intensity per enrolled child (log scale),
+- Bubble size reflects the absolute volume of child biometric updates.
+
+Districts appearing in the upper-right region of the plot combine large child populations with high update intensity, indicating concentrated lifecycle-driven service pressure. These districts represent priority candidates for targeted, preventive administrative intervention.
+
+
+## 7. Aadhaar Pulse: Governance Indicators and Actionable Signals
+
+The preceding analysis demonstrates that Aadhaar enrolment and update activity exhibits meaningful variation across districts, age groups, and lifecycle stages. However, raw patterns alone are not sufficient for administrative decision-making.
+
+Section 7 translates analytical insights into a **small set of operational governance signals** that can be monitored routinely. Each signal is designed to be:
+- transparent,
+- explainable,
+- computable from existing data,
+- and directly mappable to administrative action.
+
+Together, these signals form the **Aadhaar Pulse** framework.
+
+---
+
+### 7.1 Update Stress Index (USI)
+
+**Governance Question:**  
+Which districts are experiencing disproportionate service pressure relative to new enrolments?
+
+---
+
+#### Definition
+
+The **Update Stress Index (USI)** captures the volume of Aadhaar update activity relative to new enrolments within a district.
+
+> **USI = Total Updates / Total New Enrolments**
+
+Where:
+- *Total Updates* includes demographic and biometric updates,
+- *Total New Enrolments* includes all age groups.
+
+---
+
+#### Why USI Matters
+
+High update volumes are not inherently problematic. However, when update activity significantly exceeds enrolment activity, it may indicate:
+- repeated service interactions,
+- lifecycle-driven compliance pressure,
+- or operational capacity constraints.
+
+USI provides a simple, comparable measure to identify such districts early.
+
+---
+
+#### District-Level USI Snapshot
+
+| District | Total Enrolments | Total Updates | USI |
+|---------|------------------|---------------|-----|
+| District A | 12,450 | 31,280 | 2.51 |
+| District B | 8,920 | 7,430 | 0.83 |
+| District C | 5,310 | 14,760 | 2.78 |
+
+*Illustrative values shown for representation.*
+
+---
+
+#### Interpretation Guide
+
+- **USI < 1.0**  
+  Update activity broadly proportional to enrolments.
+
+- **USI between 1.0 and 2.0**  
+  Moderate service pressure; monitor trends.
+
+- **USI > 2.0**  
+  High update stress; prioritise for administrative review.
+
+---
+
+#### Potential Administrative Actions
+
+- Deploy mobile enrolment or update units,
+- Extend operating hours at service centres,
+- Conduct temporary capacity augmentation or staffing support.
+
+---
+
+### 7.2 Child Lifecycle Compliance Signal (CLCS)
+
+**Governance Question:**  
+Are children progressing smoothly through mandatory Aadhaar lifecycle updates across districts?
+
+---
+
+#### Background
+
+Children are a lifecycle-sensitive segment of the Aadhaar ecosystem. Timely biometric updates are essential to ensure continuity of authentication and uninterrupted access to education-linked and welfare-linked services.
+
+While individual compliance cannot be observed in aggregated data, **district-level update patterns provide an early signal of potential lifecycle discontinuity risks**.
+
+---
+
+#### Definition
+
+The **Child Lifecycle Compliance Signal (CLCS)** compares biometric update activity among children with the size of the enrolled child population.
+
+> **CLCS = Child Biometric Updates (5–17) ÷ Child Enrolments (5–17)**
+
+---
+
+#### Why CLCS Matters
+
+Low child update activity relative to enrolment size may indicate:
+- lack of awareness among parents or guardians,
+- access constraints to update facilities,
+- or administrative gaps in outreach.
+
+High update activity, on the other hand, may signal concentrated service demand requiring operational support.
+
+CLCS enables administrators to identify districts where **preventive lifecycle interventions** may be required.
+
+---
+
+#### District-Level CLCS Snapshot
+
+| District | Child Enrolments (5–17) | Child Biometric Updates | CLCS |
+|--------|--------------------------|--------------------------|------|
+| District X | 18,240 | 6,120 | 0.34 |
+| District Y | 9,870 | 8,940 | 0.91 |
+| District Z | 6,430 | 1,210 | 0.19 |
+
+*Illustrative values shown for representation.*
+
+---
+
+#### Interpretation Guide
+
+- **CLCS < 0.40**  
+  Potential lifecycle compliance gap; prioritise outreach.
+
+- **CLCS between 0.40 and 0.80**  
+  Moderate compliance; continue monitoring.
+
+- **CLCS > 0.80**  
+  High lifecycle alignment; no immediate intervention required.
+
+---
+
+#### Supporting Visual Evidence
+
+The trivariate analysis in Section 6 demonstrates that child update pressure varies widely across districts, even after accounting for enrolment size. This validates the need for a **dedicated child-specific signal** rather than reliance on aggregate update metrics.
+
+---
+
+#### Potential Administrative Actions
+
+- School-based biometric update drives,
+- Targeted awareness campaigns for parents and guardians,
+- Coordination with education departments for lifecycle outreach,
+- Temporary child-focused service camps in low-CLCS districts.
+
+---
+
+### 7.3 Enrolment Quality Signal (EQS)
+
+**Governance Question:**  
+Do patterns in post-enrolment biometric updates indicate potential enrolment quality stress in certain districts?
+
+---
+
+#### Background
+
+Initial Aadhaar enrolment quality has downstream implications for authentication reliability and citizen experience. While biometric updates are a normal part of the Aadhaar lifecycle, **unusually high levels of post-enrolment biometric updates may indicate enrolment-stage stress**, such as capture conditions, equipment issues, or the need for operational reinforcement.
+
+Given the aggregated nature of available data, enrolment quality cannot be measured directly. However, **post-enrolment biometric update intensity serves as a practical proxy signal**.
+
+---
+
+#### Definition
+
+The **Enrolment Quality Signal (EQS)** captures the relationship between adult enrolments and subsequent biometric update activity.
+
+> **EQS = 1 − (Adult Biometric Updates ÷ Adult Enrolments)**
+
+Where:
+- *Adult Biometric Updates* refer to biometric updates for individuals aged 17 years and above,
+- *Adult Enrolments* refer to new Aadhaar enrolments in the same age group.
+
+The signal is bounded between 0 and 1 for interpretability.
+
+---
+
+#### Why EQS Matters
+
+Lower EQS values indicate a higher proportion of biometric updates relative to adult enrolments. While this does not imply error or failure, persistent low EQS values may reflect:
+- suboptimal capture conditions during enrolment,
+- equipment or operator-related variability,
+- or higher post-enrolment correction demand.
+
+By identifying such patterns early, administrators can intervene proactively rather than responding after authentication issues arise.
+
+---
+
+#### District-Level EQS Snapshot
+
+| District | Adult Enrolments | Adult Biometric Updates | EQS |
+|---------|------------------|--------------------------|-----|
+| District M | 21,340 | 14,980 | 0.30 |
+| District N | 18,620 | 6,210 | 0.67 |
+| District P | 9,450 | 2,110 | 0.78 |
+
+*Illustrative values shown for representation.*
+
+---
+
+#### Interpretation Guide
+
+- **EQS < 0.40**  
+  Elevated enrolment quality stress; review enrolment processes.
+
+- **EQS between 0.40 and 0.70**  
+  Moderate post-enrolment update pressure; monitor trends.
+
+- **EQS > 0.70**  
+  Stable enrolment outcomes; no immediate action required.
+
+---
+
+#### Potential Administrative Actions
+
+- Review enrolment centre equipment and capture environments,
+- Conduct refresher training for operators in identified districts,
+- Perform targeted quality audits at enrolment centres,
+- Temporarily reinforce enrolment infrastructure where required.
+
+---
+
+### 7.4 Aadhaar Pulse: Weekly Governance View
+
+While individual indicators provide valuable insights, administrative decision-making requires a **consolidated, prioritised view**. The Aadhaar Pulse framework is therefore designed to operate as a **weekly governance dashboard**, enabling UIDAI and administrators to identify where attention is required *now*, rather than after failures occur.
+
+This section illustrates how the three signals—USI, CLCS, and EQS—can be combined into a single, actionable view.
+
+---
+
+#### Concept: From Metrics to Decisions
+
+Each district is evaluated across the three Aadhaar Pulse signals:
+- **Update Stress Index (USI)** – service pressure,
+- **Child Lifecycle Compliance Signal (CLCS)** – lifecycle continuity,
+- **Enrolment Quality Signal (EQS)** – enrolment-stage stability.
+
+Rather than producing a composite score, the framework preserves **signal-level visibility**, ensuring transparency and explainability.
+
+---
+
+#### Illustrative Weekly Aadhaar Pulse Snapshot
+
+| District | USI Status | CLCS Status | EQS Status | Governance Priority |
+|---------|------------|-------------|------------|---------------------|
+| District A | 🔴 High | 🟠 Medium | 🔴 Low | Immediate Intervention |
+| District B | 🟠 Medium | 🟢 High | 🟠 Medium | Monitor Closely |
+| District C | 🟢 Low | 🟢 High | 🟢 High | Stable |
+| District D | 🔴 High | 🔴 Low | 🟠 Medium | Child-Focused Action |
+
+*Status levels are derived using the interpretation guides defined in Sections 7.1–7.3.*
+
+---
+
+#### Priority Classification Logic
+
+- **Immediate Intervention**  
+  Triggered when two or more signals fall in the high-risk range.
+
+- **Targeted Action**  
+  Triggered when one critical signal (e.g., low CLCS) is observed.
+
+- **Monitor Closely**  
+  Triggered when signals indicate moderate but rising stress.
+
+- **Stable**  
+  All signals within acceptable ranges.
+
+This classification enables rapid prioritisation without obscuring the underlying drivers.
+
+---
+
+#### Example: Monday Morning Administrative Use
+
+A weekly Aadhaar Pulse review enables administrators to:
+- identify districts requiring mobile unit deployment,
+- schedule child-focused outreach campaigns,
+- initiate enrolment centre audits where quality stress is detected,
+- allocate limited operational resources more efficiently.
+
+The framework is intentionally lightweight and can be implemented using existing reporting pipelines without additional data collection.
+
+---
+
+#### Why Aadhaar Pulse Is Different
+
+Unlike retrospective performance reports, Aadhaar Pulse is designed to function as an **early-warning governance system**. It shifts the administrative posture from reactive problem-solving to preventive intervention, while remaining grounded in transparent, aggregated data.
+
+By combining simplicity with analytical depth, Aadhaar Pulse supports fairness, continuity, and resilience across the Aadhaar ecosystem.
+
+---
 
