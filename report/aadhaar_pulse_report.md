@@ -91,6 +91,11 @@ The analytical approach is guided by three principles:
 
 This study utilises aggregated and anonymised Aadhaar datasets made available by UIDAI through the data.gov.in platform. All datasets are officially sourced, open for analytical use, and contain no personally identifiable information.
 
+More information and approach Can be found here:
+
+**Github Repository - https://github.com/anmolsriwastava/aadhaar-pulse-governance-insights**
+
+
 The analysis integrates multiple Aadhaar data streams to ensure a holistic understanding of enrolment patterns, update behaviour, and lifecycle-related trends.
 
 ---
@@ -252,7 +257,19 @@ Reproducibility was treated as a core design principle throughout the project. T
 
 Each stage of this pipeline is implemented through well-documented Jupyter notebooks and supporting scripts. Intermediate processed datasets are saved explicitly, allowing any step of the analysis to be reproduced or audited independently.
 
+**Github Repository - https://github.com/anmolsriwastava/aadhaar-pulse-governance-insights**
+
+
 The full codebase, including notebooks and processed outputs, is maintained in a public GitHub repository, ensuring transparency and enabling independent verification of results.
+
+**Reproducibility Note:**
+All data ingestion, cleaning, aggregation, and analysis steps described in this section are fully reproducible and implemented in the accompanying Jupyter notebooks:
+
+- `notebooks/01_data_loading_and_cleaning.ipynb`
+- `notebooks/02_exploratory_analysis.ipynb`
+
+These notebooks are included in the project repository and may be reviewed independently.
+
 
 ---
 
@@ -628,6 +645,9 @@ Section 7 translates analytical insights into a **small set of operational gover
 
 Together, these signals form the **Aadhaar Pulse** framework.
 
+**The computation of USI, CLCS, and EQS is implemented programmatically in the analysis notebooks using the aggregated district-level dataset.**
+
+
 ---
 
 ### 7.1 Update Stress Index (USI)
@@ -913,3 +933,16 @@ By combining simplicity with analytical depth, Aadhaar Pulse supports fairness, 
 
 ---
 
+## Appendix A: Code Availability
+
+**Github Repository - https://github.com/anmolsriwastava/aadhaar-pulse-governance-insights**
+
+
+The complete analytical workflow for this project is implemented in Python using open-source libraries. The codebase includes:
+
+- Data ingestion and validation
+- Cleaning and aggregation logic
+- Indicator computation
+- Visualisation scripts
+
+The full implementation is available in the accompanying GitHub repository under the `notebooks/` directory. This ensures transparency, auditability, and reproducibility of all results presented in this report.
